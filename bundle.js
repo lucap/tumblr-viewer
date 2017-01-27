@@ -44,7 +44,9 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	
+	"use strict";
+
+	document.write("Hello World");
 
 /***/ }
 /******/ ]);
