@@ -9,7 +9,6 @@ const reducers = (state = {}, action) => {
       return {}
 
     case 'SEARCH':
-      console.log('reducer');
       return Object.assign({}, state, {
         favorites: ['1']
       })
