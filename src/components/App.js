@@ -14,7 +14,13 @@ class App extends Component {
     render() {
         console.log(this.props);
         return (
-            <div onClick={this.handleSearch}>Here</div>
+            <div className='column-wrapper'>
+                <div className='column left'>
+                    <button className='btn'>Blog Name</button>
+                </div>
+                <div className='column right'>
+                </div>
+            </div>
         );
     };
 }
