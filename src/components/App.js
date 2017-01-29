@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as Actions from '../actions';
+import SearchBox from './SearchBox';
 
 
 class App extends Component {
@@ -15,11 +16,7 @@ class App extends Component {
         return (
             <div className='column-wrapper'>
                 <div className='column left'>
-                    <button
-                        className='btn'
-                        onClick={this.handleSearch}>
-                        Blog Name
-                    </button>
+                    <SearchBox/>
                 </div>
                 <div className='column right'>
                 </div>
