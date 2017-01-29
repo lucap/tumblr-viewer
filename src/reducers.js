@@ -1,6 +1,6 @@
 
 
-const reducers = (state = {}, action) => {
+const rootReducer = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_FAVORITE':
       return {}
@@ -8,9 +8,16 @@ const reducers = (state = {}, action) => {
     case 'REMOVE_FAVORITE':
       return {}
 
-    case 'SEARCH':
+    case 'LOADING_POSTS':
+      console.log('loading');
       return Object.assign({}, state, {
-        favorites: ['1']
+        favorites: ['here']
+      })
+
+    case 'POSTS_LOADED':
+      console.log('loaded', action);
+      return Object.assign({}, state, {
+        searchResults: ['there']
       })
 
     default:
@@ -18,4 +25,4 @@ const reducers = (state = {}, action) => {
   }
 }
 
-export default reducers;
+export default rootReducer;

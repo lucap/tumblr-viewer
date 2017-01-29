@@ -8,14 +8,18 @@ import * as Actions from '../actions';
 
 class App extends Component {
     handleSearch = () => {
-        this.props.actions.search('americorp');
+        this.props.actions.fetchPosts('americorp');
     }
 
     render() {
         return (
             <div className='column-wrapper'>
                 <div className='column left'>
-                    <button className='btn'>Blog Name</button>
+                    <button
+                        className='btn'
+                        onClick={this.handleSearch}>
+                        Blog Name
+                    </button>
                 </div>
                 <div className='column right'>
                 </div>

@@ -1,4 +1,6 @@
+import fetchJsonp from 'fetch-jsonp';
 
+const API_KEY = 'u1VllcnhGaN8UgLgplYlHMmdC5Y8uxxtoPdV4vnu8vO11CaK2i';
 
 export const addFavorite = (item) => {
   return {
@@ -14,11 +16,21 @@ export const removeFavorite = (item_id) => {
   }
 }
 
-export const search = (blogname, tag) => {
-  return {
-    type: 'SEARCH',
-    blogname,
-    tag,
-  }
+export const fetchPosts = (blogName, tag) => {
+    console.log('here');
+    return dispatch => {
+        dispatch({type: 'POSTS_LOADING'});
+        return fetchJsonp(`https://api.tumblr.com/v2/blog/peacecorps/info?api_key=${API_KEY}`)
+            .then(response => response.json())
+            .then(json => dispatch({
+                type: 'POSTS_LOADED',
+                data: json,
+            }))
+            .catch(err => {
+                dispatch({type: 'POSTS_ERROR'});
+                console.log('Fetch Error: ', err);
+            })
+    }
 }
+
 
