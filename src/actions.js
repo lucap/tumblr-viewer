@@ -17,7 +17,7 @@ export const removeFavorite = (item_id) => {
 }
 
 export const fetchPosts = (blogName, tag) => {
-    console.log('here');
+    console.log('--->', blogName, tag);
     return dispatch => {
         dispatch({type: 'POSTS_LOADING'});
         return fetchJsonp(`https://api.tumblr.com/v2/blog/peacecorps/info?api_key=${API_KEY}`)

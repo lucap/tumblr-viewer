@@ -8,15 +8,17 @@ import SearchBox from './SearchBox';
 
 
 class App extends Component {
-    handleSearch = () => {
-        this.props.actions.fetchPosts('americorp');
+    onSearch = (blogName, tagName) => {
+        this.props.actions.fetchPosts(blogName, tagName);
     }
 
     render() {
         return (
             <div className='column-wrapper'>
                 <div className='column left'>
-                    <SearchBox/>
+                    <SearchBox
+                        onSearch={this.onSearch}
+                    />
                 </div>
                 <div className='column right'>
                 </div>
