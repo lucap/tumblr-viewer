@@ -48,6 +48,7 @@ class SearchBox extends Component {
                     onClick={this.onSubmit}>
                     Search
                 </button>
+                <div className='clear'></div>
             </div>
         );
     };

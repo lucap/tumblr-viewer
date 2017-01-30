@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import * as Actions from '../actions';
 import SearchBox from './SearchBox';
+import PostList from './PostList';
 
 
 class App extends Component {
@@ -13,12 +14,17 @@ class App extends Component {
     }
 
     render() {
+        const {searchResults} = this.props;
         return (
             <div className='column-wrapper'>
                 <div className='column left'>
-                    <SearchBox
-                        onSearch={this.onSearch}
-                    />
+                    <SearchBox onSearch={this.onSearch}/>
+                    <div className='separator'/>
+                    {
+                        searchResults
+                        ? (<PostList posts={searchResults}/>)
+                        : null
+                    }
                 </div>
                 <div className='column right'>
                 </div>

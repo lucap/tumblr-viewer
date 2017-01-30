@@ -1,4 +1,4 @@
-
+import _ from 'lodash';
 
 const rootReducer = (state = {}, action) => {
   switch (action.type) {
@@ -9,15 +9,13 @@ const rootReducer = (state = {}, action) => {
       return {}
 
     case 'LOADING_POSTS':
-      console.log('loading');
       return Object.assign({}, state, {
         favorites: ['here']
       })
 
     case 'POSTS_LOADED':
-      console.log('loaded', action);
-      return Object.assign({}, state, {
-        searchResults: ['there']
+      return _.assign({}, state, {
+        searchResults: action.data.response.posts
       })
 
     default:
