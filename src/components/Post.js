@@ -52,8 +52,8 @@ const video = ({caption, player}) => (
 
 const answer = ({question, answer}) => (
     <div>
-        <div>{question}</div>
-        <div>{answer}</div>
+        <div dangerouslySetInnerHTML={{__html: question}}></div>
+        <div dangerouslySetInnerHTML={{__html: answer}}></div>
     </div>
 );
 
