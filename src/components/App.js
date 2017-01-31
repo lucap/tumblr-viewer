@@ -35,7 +35,7 @@ class App extends Component {
                         : null
                     }
                     {
-                        searchResults
+                        !isLoading && searchResults
                         ? (
                             <PostList
                                 posts={searchResults}
