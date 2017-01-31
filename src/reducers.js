@@ -28,14 +28,15 @@ const rootReducer = (state = {}, action) => {
         )
       })
 
-    case 'LOADING_POSTS':
-      return Object.assign({}, state, {
-        favorites: ['here']
+    case 'POSTS_LOADING':
+      return _.assign({}, state, {
+        isLoading: true
       })
 
     case 'POSTS_LOADED':
       return _.assign({}, state, {
-        searchResults: data.response.posts
+        searchResults: data.response.posts,
+        isLoading: false
       })
 
     default:

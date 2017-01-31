@@ -22,13 +22,18 @@ class App extends Component {
     }
 
     render() {
-        const {searchResults, favorites} = this.props;
+        const {searchResults, favorites, isLoading} = this.props;
 
         return (
             <div className='column-wrapper'>
                 <div className='column left'>
                     <SearchBox onSearch={this.onSearch}/>
                     <div className='separator'/>
+                    {
+                        isLoading
+                        ? (<div className='loading-indicator'>Loading...</div>)
+                        : null
+                    }
                     {
                         searchResults
                         ? (
@@ -64,6 +69,7 @@ function mapStateToProps(state) {
   return {
     favorites: state.favorites,
     searchResults: state.searchResults,
+    isLoading: state.isLoading,
   };
 }
 

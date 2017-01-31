@@ -13,6 +13,7 @@ import App from './components/App'
 const initialState = {
 	favorites: [],
 	searchResults: [],
+	isLoading: false,
 };
 
 let store = createStore(
