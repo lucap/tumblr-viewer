@@ -33,6 +33,7 @@ class SearchBox extends Component {
                     <input
                         type="text"
                         name="blogName"
+                        autoFocus="autoFocus"
                         value={this.state.blogName}
                         onChange={this.onChange}
                         onKeyPress={this.onKeyPress}
