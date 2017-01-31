@@ -28,6 +28,7 @@ git push
 
 ## Future Developments 
 
+* Add error handling when no posts are found
 * Responsive design for mobile web
 * Support pagination or infinite load (search results and favorites)
 * For photo posts, we should pick the smallest size that would fill the post window (e.i. not the large original)
