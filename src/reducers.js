@@ -35,7 +35,7 @@ const rootReducer = (state = {}, action) => {
 
     case 'POSTS_LOADED':
       return _.assign({}, state, {
-        searchResults: data.response.posts,
+        searchResults: data,
         isLoading: false
       })
 

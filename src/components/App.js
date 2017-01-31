@@ -10,7 +10,9 @@ import PostList from './PostList';
 
 class App extends Component {
     onSearch = (blogName, tagName) => {
-        this.props.actions.fetchPosts(blogName, tagName);
+        if (blogName || tagName) {
+            this.props.actions.fetchPosts(blogName, tagName);
+        }
     }
 
     onAdd = (post) => {
