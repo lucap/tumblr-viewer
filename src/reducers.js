@@ -1,12 +1,32 @@
 import _ from 'lodash';
 
+
+const containsById = (collection, id) => {
+  return Boolean(_.find(collection, (item) => {
+    return item.id === id
+  }))
+}
+
 const rootReducer = (state = {}, action) => {
-  switch (action.type) {
+  const {favorites} = state;
+  const {type, data, item, itemId} = action;
+
+  switch (type) {
     case 'ADD_FAVORITE':
-      return {}
+      if (containsById(favorites, item.id)) {
+        return state;
+      }
+
+      return _.assign({}, state, {
+        favorites: _.concat([item], favorites)
+      })
 
     case 'REMOVE_FAVORITE':
-      return {}
+      return _.assign({}, state, {
+        favorites: _.filter(favorites,
+          (item) => {return item.id !== itemId}
+        )
+      })
 
     case 'LOADING_POSTS':
       return Object.assign({}, state, {
@@ -15,7 +35,7 @@ const rootReducer = (state = {}, action) => {
 
     case 'POSTS_LOADED':
       return _.assign({}, state, {
-        searchResults: action.data.response.posts
+        searchResults: data.response.posts
       })
 
     default:

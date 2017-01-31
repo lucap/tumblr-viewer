@@ -13,8 +13,17 @@ class App extends Component {
         this.props.actions.fetchPosts(blogName, tagName);
     }
 
+    onAdd = (post) => {
+        this.props.actions.addFavorite(post);
+    }
+
+    onRemove = (post) => {
+        this.props.actions.removeFavorite(post.id);
+    }
+
     render() {
-        const {searchResults} = this.props;
+        const {searchResults, favorites} = this.props;
+
         return (
             <div className='column-wrapper'>
                 <div className='column left'>
@@ -22,11 +31,29 @@ class App extends Component {
                     <div className='separator'/>
                     {
                         searchResults
-                        ? (<PostList posts={searchResults}/>)
+                        ? (
+                            <PostList
+                                posts={searchResults}
+                                buttonText='Add'
+                                onButtonPress={this.onAdd}
+                            />
+                        )
                         : null
                     }
                 </div>
                 <div className='column right'>
+                    <div className='favorites-label'>Favorites:</div>
+                    {
+                        favorites
+                        ? (
+                            <PostList
+                                posts={favorites}
+                                buttonText='Remove'
+                                onButtonPress={this.onRemove}
+                            />
+                        )
+                        : null
+                    }
                 </div>
             </div>
         );

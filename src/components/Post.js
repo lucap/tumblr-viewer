@@ -69,18 +69,30 @@ const postTypeMap = {
 };
 
 class Post extends Component {
+    onButtonPress = () => {
+        const {post, onButtonPress} = this.props;
+        onButtonPress(post);
+    }
+
     render() {
-        const {post, buttonText, onButtonPress} = this.props;
+        const {post, buttonText} = this.props;
         return (
             <div className='post'>
                 <div className='post-action-button'>
                     <button
                         className='button'
                         onClick={this.onButtonPress}>
-                        {'Add'}
+                        {buttonText}
                     </button>
                 </div>
-                <div>{React.createElement(postTypeMap[post.type], post)}</div>
+                <div>
+                    {
+                        React.createElement(
+                            postTypeMap[post.type],
+                            post
+                        )
+                    }
+                </div>
             </div>
         );
     };

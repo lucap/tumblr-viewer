@@ -9,10 +9,10 @@ export const addFavorite = (item) => {
   }
 }
 
-export const removeFavorite = (item_id) => {
+export const removeFavorite = (itemId) => {
   return {
     type: 'REMOVE_FAVORITE',
-    item_id,
+    itemId,
   }
 }
 

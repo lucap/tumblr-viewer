@@ -10,7 +10,10 @@ import rootReducer from './reducers'
 import App from './components/App'
 
 
-const initialState = {};
+const initialState = {
+	favorites: [],
+	searchResults: [],
+};
 
 let store = createStore(
     rootReducer,
