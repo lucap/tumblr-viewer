@@ -14,11 +14,15 @@ class SearchBox extends Component {
         this.props.onSearch(blogName, tagName);
     }
 
-    onInputChange = (event) => {
+    onChange = (event) => {
         const {name, value} = event.target;
-        this.setState({
-          [name]: value
-        });
+        this.setState({[name]: value});
+    }
+
+    onKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            this.onSubmit();
+        }
     }
 
     render() {
@@ -30,7 +34,8 @@ class SearchBox extends Component {
                         type="text"
                         name="blogName"
                         value={this.state.blogName}
-                        onChange={this.onInputChange}
+                        onChange={this.onChange}
+                        onKeyPress={this.onKeyPress}
                     />
                 </div>
                 <div className='tag-name'>
@@ -39,7 +44,8 @@ class SearchBox extends Component {
                         type="text"
                         name="tagName"
                         value={this.state.tagName}
-                        onChange={this.onInputChange}
+                        onChange={this.onChange}
+                        onKeyPress={this.onKeyPress}
                     />
                 </div>
                 <div className='clear'></div>
