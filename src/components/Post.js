@@ -39,14 +39,14 @@ const chat = ({title, body}) => (
 const audio = ({caption, player}) => (
     <div>
         <div dangerouslySetInnerHTML={{__html: caption}}></div>
-        <div dangerouslySetInnerHTML={{__html: player}}></div>
+        <div className='player' dangerouslySetInnerHTML={{__html: player}}></div>
     </div>
 );
 
 const video = ({caption, player}) => (
     <div>
         <div dangerouslySetInnerHTML={{__html: caption}}></div>
-        <div dangerouslySetInnerHTML={{__html: player[0].embed_code}}></div>
+        <div className='player' dangerouslySetInnerHTML={{__html: player[0].embed_code}}></div>
     </div>
 );
 
